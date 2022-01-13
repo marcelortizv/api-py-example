@@ -21,6 +21,14 @@ def predict():
 
             prediction = list(model.predict(query))
 
+            for idx in range(len(prediction)):
+                if prediction[idx] == 1:
+                    prediction[idx] = 'Looks_bad'
+                else:
+                    prediction[idx] = 'Looks_ok'
+            print(prediction)
+
+
             return jsonify({'prediction': str(prediction)})
 
         except:
